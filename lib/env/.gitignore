@@ -1,0 +1,2 @@
+# exclude all .env files from source control
+*.env
