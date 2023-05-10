@@ -370,7 +370,7 @@ class _ChatPageState extends State<ChatPage> {
             //fit: BoxFit.scaleDown,
             image: AssetImage("./assets/icon/icon.png"),
           ),
-          color: Colors.teal,
+          color: Color.fromARGB(255, 0, 22, 150),
         ),
         child: Text(''),
       ),
