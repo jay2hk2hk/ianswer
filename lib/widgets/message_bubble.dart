@@ -31,7 +31,7 @@ class MessageBubble extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  isUserMessage ? '你' : '我答',
+                  isUserMessage ? '你' : '你问我答',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
