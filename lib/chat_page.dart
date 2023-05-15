@@ -18,7 +18,7 @@ import 'database_helper.dart';
 // To try without auto-consume on another platform, change `true` to `false` here.
 final bool _kAutoConsume = Platform.isIOS || true;
 
-const String _kConsumableId = 'consumableIA10';
+const String _kConsumableId = 'youaskianswerconsumableIA10';
 const String _kUpgradeId = 'upgrade';
 const String _kSilverSubscriptionId = 'subscription_silver';
 const String _kGoldSubscriptionId = 'subscription_gold';
