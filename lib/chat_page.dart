@@ -13,6 +13,7 @@ import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 import 'package:in_app_purchase_storekit/in_app_purchase_storekit.dart';
 import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 import 'database_helper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Auto-consume must be true on iOS.
 // To try without auto-consume on another platform, change `true` to `false` here.
@@ -265,7 +266,10 @@ class _ChatPageState extends State<ChatPage> {
                   case ConnectionState.active:
                   case ConnectionState.done:
                     if (snapshot.hasError) {
-                      return Text('你还有（0）题');
+                      return Text(
+                        '你还有（0）题',
+                        style: TextStyle(fontSize: 13.sp),
+                      );
                     } else {
                       if ((snapshot.data) as int <= 0) {
                         hasCountOrNot = false;
@@ -274,6 +278,7 @@ class _ChatPageState extends State<ChatPage> {
                       }
                       return Text(
                         '你还有(${snapshot.data})题',
+                        style: TextStyle(fontSize: 13.sp),
                       );
                     }
                 }
@@ -337,7 +342,10 @@ class _ChatPageState extends State<ChatPage> {
               })
             },
           ),
-          title: Text("FAQ"),
+          title: Text(
+            "FAQ",
+            style: TextStyle(fontSize: 13.sp),
+          ),
         ),
         body: new Center(
           child: ListView.separated(
@@ -347,6 +355,7 @@ class _ChatPageState extends State<ChatPage> {
                 child: ListTile(
                   title: Text(
                     europeanCountries[index],
+                    style: TextStyle(fontSize: 13.sp),
                   ),
                 ),
               );
@@ -378,7 +387,10 @@ class _ChatPageState extends State<ChatPage> {
     temp.add(
       ListTile(
         leading: Icon(Icons.add),
-        title: Text('新增聊天'),
+        title: Text(
+          '新增聊天',
+          style: TextStyle(fontSize: 13.sp),
+        ),
         onTap: () {
           newChat();
           Navigator.pop(context);
@@ -406,6 +418,7 @@ class _ChatPageState extends State<ChatPage> {
           leading: Icon(Icons.payments),
           title: Text(
             productDetails.title,
+            style: TextStyle(fontSize: 13.sp),
           ),
           /*subtitle: Text(
             productDetails.description,
@@ -472,6 +485,7 @@ class _ChatPageState extends State<ChatPage> {
               child: new Text(
                 chat.chatname,
                 overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 13.sp),
               ),
             ),
           ),
@@ -498,7 +512,10 @@ class _ChatPageState extends State<ChatPage> {
                 //Divider(),
                 ListTile(
                   leading: Icon(Icons.question_mark),
-                  title: Text('FAQ'),
+                  title: Text(
+                    'FAQ',
+                    style: TextStyle(fontSize: 13.sp),
+                  ),
                   onTap: () {
                     setState(() {
                       page = 1;
@@ -527,14 +544,18 @@ class _ChatPageState extends State<ChatPage> {
       );
       if (context.mounted) {
         if (priceChangeConfirmationResult.responseCode == BillingResponse.ok) {
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text('接受价格变动'),
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+              '接受价格变动',
+              style: TextStyle(fontSize: 13.sp),
+            ),
           ));
         } else {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(
               priceChangeConfirmationResult.debugMessage ??
                   '价格更改因代码失败 ${priceChangeConfirmationResult.responseCode}',
+              style: TextStyle(fontSize: 13.sp),
             ),
           ));
         }
@@ -600,7 +621,11 @@ class _ChatPageState extends State<ChatPage> {
       });
     } catch (err) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('发生错误。 请再试一次。.')),
+        SnackBar(
+            content: Text(
+          '发生错误。 请再试一次。.',
+          style: TextStyle(fontSize: 13.sp),
+        )),
       );
       setState(() {
         _awaitingResponse = false;

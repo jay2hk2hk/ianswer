@@ -1,5 +1,6 @@
 // widgets/message_composer.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MessageComposer extends StatelessWidget {
   MessageComposer({
@@ -24,6 +25,7 @@ class MessageComposer extends StatelessWidget {
             Expanded(
               child: !awaitingResponse
                   ? TextField(
+                      style: TextStyle(fontSize: 13.sp),
                       controller: _messageController,
                       onSubmitted: onSubmitted,
                       decoration: const InputDecoration(
@@ -33,10 +35,10 @@ class MessageComposer extends StatelessWidget {
                     )
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         SizedBox(
-                          height: 24,
-                          width: 24,
+                          height: 24.h,
+                          width: 24.w,
                           child: CircularProgressIndicator(),
                         ),
                         Padding(

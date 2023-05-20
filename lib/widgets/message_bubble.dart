@@ -1,5 +1,6 @@
 // widgets/message_bubble.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -32,15 +33,20 @@ class MessageBubble extends StatelessWidget {
               children: [
                 Text(
                   isUserMessage ? '你' : '你问我答',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
                 ),
               ],
             ),
-            const SizedBox(height: 8),
-            MarkdownWidget(
+            SizedBox(height: 8.h),
+            Text(
+              content,
+              style: TextStyle(fontSize: 13.sp),
+            ),
+            /*MarkdownWidget(
               data: content,
               shrinkWrap: true,
-            ),
+            ),*/
           ],
         ),
       ),
